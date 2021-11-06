@@ -20,15 +20,15 @@ def predict():
    
    
    inputs = []
-   inputs.append(request.form['pclass'])
+   inputs.append(request.form['age'])
    inputs.append(request.form['gender'])    
-   inputs.append(request.form['siblings'])
-   inputs.append(request.form['embarked'])
+   inputs.append(request.form['bp'])
+   inputs.append(request.form['chol'])
    
-   class1 = request.form['pclass']
-   gender = request.form['gender'] 
-   siblings = request.form['siblings']
-   embarked = request.form['embarked']
+   age1 = request.form['age']
+   gender1 = request.form['gender'] 
+   bp1 = request.form['bp']
+   chol1 = request.form['chol']
    
 
    
@@ -43,33 +43,18 @@ def predict():
         categorical_array = "Not Survived"
     
    result= categorical_array
-   if class1=="1":
-       class1 = "First Class"
-   if class1=="2":
-       class1 = "Second Class"
-   if class1=="3":
-       class1 = "Third Class"
+   
        
-   if gender=="0":
-       gender = "Female"
-   if gender=="1":
-       gender = "Male"
+   if gender1=="0":
+       gender1 = "Female"
+   if gender1=="1":
+       gender1 = "Male"
      
-   if siblings=="1":
-       siblings = "One"
-   if siblings=="2":
-       siblings = "Two"
-   if siblings=="3":
-       siblings = "Three"
+   
        
-   if embarked=="0":
-       embarked = "Cherbourg"
-   if embarked=="1":
-       embarked = "Queenstown"
-   if embarked=="2":
-       embarked = "Southampton"
+   
        
-   return render_template('Home.html', prediction_text1=result, class11 = class1, gender1=gender, siblings1=siblings, embarked1=embarked)
+   return render_template('Home.html', prediction_text1=result, age2 = age1, gender2=gender1, bp2=bp1, chol2=chol1)
 
 
 

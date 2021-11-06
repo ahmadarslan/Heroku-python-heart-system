@@ -1,0 +1,6 @@
+
+
+     <div class="a-field search__field"
+                            <label>Enter age (between 20 and 90):</label>
+                            <input type="number" id="age" name="age" min="20" max="90">
+                            <br />

@@ -1,173 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<style>
-.footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: transparent;
-  color: white;
-  text-align: center; }
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
 
-.grid-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;}
+    <link rel="stylesheet" href="/static/fonts/icomoon/style.css">
 
-.wrapper {
-    text-align: center;}
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
 
-.predict_button {border-radius: 25%;}
-
-h1.a {
-  text-align: center;
-  color: white;}
-  
-</style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
 
     <title>Heart Disease Prediction System</title>
-    <meta charset="utf-8">
+  </head>
+  <body>
+  
 
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="/static/home/css/style.css">
-
-    <!-- searchbox css -->
-    <link rel="stylesheet" href="/static/type/css/searchbox.css">
-
-    <!-- insertion templates -->
-       
-  	<link rel="stylesheet" href="/static/insertion/css/tooplate-style.css">
-  	<link rel="stylesheet" href="/static/insertion/css/fontawesome-all.min.css"> 
-
-    <!-- Custom CSS -->
-    <link href="/static/lapsus/css/style.css" rel="stylesheet">
-
-
-</head>
-<body 
-<div class="full-height" style="background-image:url(/static/home/images/pic.png);">
-  <section class="ftco-cover"  id="section-home">
+  <div class="content">
+    
     <div class="container">
-      <div class="row align-items-center ftco-vh-100">
-        <div class="col-md-12">
-          <div class="ftco-heading mb-5"><h1 class="a" style="color:blue;">Heart Disease Prediction System</h1></div>
-            <div class="grid-container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mr-auto">
+          <div class="mb-5">
+            <h3 class="text-white mb-4">Heart Disease Prediction System</h3>
+            <p class="text-white">Heart disease (HD) is one of the most common diseases nowadays, due to number of contributing factors, such as high blood pressure, diabetes, cholesterol fluctuation, exhaustion, and many others.</p>
+            <p <span style="color:white;"> Main aim of this predictive system is to automatically predict whether a human is diagnosed with heart disease or not
+            </span></p>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="text-white h5 mb-3">Representation of Input</h3>
+              <ul class="list-unstyled mb-5">
+                <li class="d-flex text-white mb-2">
+                  <span class="mr-3"></span></span>- Age (between 20 - 90)
+                </li>
+                <li class="d-flex text-white mb-2"><span class="mr-3"></span></span> - Blood Pressure (between 80-200)</li>
+                <li class="d-flex text-white"><span class="mr-3"></span></span>- Cholesterol (between 80-300) </li>
+                <li class="d-flex text-white"><span class="mr-3"></span></span>- Gender (Female = 1 & Male = 0) </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3 class="text-white h5 mb-3">Representation of Output</h3>
+              <ul class="list-unstyled mb-5">
+                <li class="d-flex text-white mb-2">
+                  <span class="mr-3"></span></span>- Diagnosed or not
+                </li>
+                <li><span style="color:white;">&emsp;&emsp;&emsp;&emsp;Possible Value 01 –</span><span style="color:white;">Yes</span></p>
+               <li><span style="color:white;">&emsp;&emsp;&emsp;&emsp;Possible Value 02 –</span><span style="color:white;">No</span></p>
+               
+              </ul>
+            </div>
+          </div>
+        </div>
 
-              <div class="grid-child left">
-                <h1 style="color:blue;">Project Aim</h1>
-                <p style="color:white;">The main purpose of this project is to predict whether a patient with heart disease, survived or not?</p>
-                <br><p style="color:red;"><strong>Input and output</br></p></strong>
-                <p style="color:white;"><strong>Input:</strong> Patient</p>
-                <p style="color:white;"><strong>Output:</strong> Prediction (Survived / Not Survived)</p></br>
-                <p style="color:red;"><strong>Representation of Input (Patient)</br></p></strong> 
-                <p style="color:white;"><strong>&emsp;&emsp;Input (Patient) is Represented as 4 Input Attributes</br></p></strong> 
+        <div class="col-lg-6 divForm" style="display:none;">
+          <div class="box">
+            <h3 class="heading">Input (Human Attributes)</h3>
+            <form action="{{ url_for('predict')}}" class="mb-5" method="post" id="predictForm" name="predictForm">
+              <div class="row">
                 
-                <p style="color:white;"><strong>&emsp;&emsp;Input Attributes 01– Age (Patient Age)</br></p></strong> 
-                
-                <br>
-                <p style="color:white;"><strong>&emsp;&emsp;Input Attributes 02– Gender </br></p></strong> 
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Possible Value 01 – </strong>Male</p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Possible Value 02 – </strong>Female</p>
-                <br>                
-                <p style="color:white;"><strong>&emsp;&emsp;Input Attributes 03– Blood Pressure (BP Values)</br></p></strong> 
-                
-                <br>                
-                <p style="color:white;"><strong>&emsp;&emsp;Input Attributes 04– Cholesterol Value</br></p></strong> 
-                              
-                <br>
-                <p style="color:red;"><strong>Representation of Output</br></p></strong> 
-                <p style="color:white;"><strong>&emsp;&emsp;&nbsp;Output is Represented as a single Output Attributes</br></p></strong> 
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Output Attribute – Survived </br></p></strong> 
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Possible Value 01 – </strong>Yes</p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Possible Value 02 – </strong>No</p>
-                <br>
-                <p style="color:red;"><strong>Example - Input and Output</strong></p>
-                <p style="color:red;"><strong>Input (Patient): </strong></p>
-                <p style="color:white;"><strong>&emsp;&emsp;Age: </strong></p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;24 </strong></p>
+                <div class="col-md-6">
+                  <label for="age" class="col-form-label">Age</label>
+                  <input type="number" class="form-control" name="age" id="age" min="20" max="90" placeholder="Enter Age" required> 
+                </div>
+                <div class="col-md-6">
+                  <label for="bp" class="col-form-label">Blood Pressure</label>
+                  <input type="number" class="form-control" name="bp" id="bp" min="80" max="200" placeholder="Enter Blood Pressure" required>
+                </div>
+			</div>
+			<div class="row">
+                 <div class="col-md-6">
+                  <label for="chol" class="col-form-label">Cholesterol Value</label>
+                  <input type="number" class="form-control" name="chol" id="chol" min="80" max="300" placeholder="Enter Cholesterol" required>
+                </div>
+			
+                 <div class="col-md-6">
+                  <label for="gender" class="col-form-label">Gender</label>
+                  <select name="gender" id="gender" class="form-control"> 
+                  		<option value="0">Male</option>
+						<option value="1">Female</option>
+                  </select>
+                </div>
+                </div>
+              <div class="row form-group text-center">
+                <div class="col-md-12">
+                  <input type="submit" onclick="javascript:sumitForm();" value="Generate Prediction" class="btn btn-block btn-primary" style="width: 220px;position: relative;left: calc(50% - 110px);top: 15px;font-weight: 700;">
+                 
+                </div>
+              </div>
+            </form>
 
-                
-                <p style="color:white;"><strong>&emsp;&emsp;Gender: </strong></p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;Male </strong></p>
-
-                <p style="color:white;"><strong>&emsp;&emsp;BP: </strong></p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;187 </strong></p>
+            <div id="form-message-warning mt-4"></div> 
+           
+          </div>
+          
+        </div>
+        <div class="col-lg-6 divResult hidden" style="display:none;">
+          <div class="box">
+            <h3 class="heading"><strong>Prediction</strong></h3>
             
-            
-                <p style="color:white;"><strong>&emsp;&emsp;Cholesterol: </strong></p>
-                <p style="color:white;"><strong>&emsp;&emsp;&emsp;&emsp;233 </strong></p>
+              <div class="row">
                 
-                <p style="color:red;"><strong>Output: </strong>Survived</p>
-                <br><br><br>    
+                <div class="col-md-6">
+                  <label>Age: <span style="color:red;">{{age2}}</span></label>
+                </div>
+                <div class="col-md-6">
+                  <label>Blood Presure: <span style="color:red;">{{bp2}}</span></label>
+                </div>
+			</div>
+			<div class="row">
+                 <div class="col-md-6">
+                  <label>Cholesterol: <span style="color:red;">{{chol2}}</span></label>
+                </div>
+			
+                 <div class="col-md-6">
+                  <label>Gender: <span style="color:red;">{{gender2}}</span></label>
+                </div>
+                </div>
+                <div class="row text-center">
+                 <div class="col-md-12">
+                  <label style="color:red;font-weight:700;font-size: x-large;">{{ prediction_text1 }}</label>
+                </div>
+			
+                </div>
+              <div class="row form-group text-center">
+                <div class="col-md-12">
+                  <input type="button" onclick="gotoback();" value="Back" class="btn btn-block btn-primary" style="width: 220px;position: relative;left: calc(50% - 110px);top: 15px;font-weight: 700;">
+                 
+                </div>
               </div>
               
-              <div class="grid-child right">
-              <h1 style="color:white;">Input(Passenger)</h1><br>
-                <div class="page" >
-                    <div class="page__demo">   
-                     <form action="{{ url_for('predict')}}" class="search" method="POST">
-                          <div class="form__group field">
-                            <label for="age" class="form__label">Enter age</label>
-                              <input type="number" class="form__field" placeholder="Age" name="age" id="age" min="20" required />
-  
-                            </div>
-                               <br />
-                                
-                            <div class="dropdown">
-                            <select class="form-control btn-secondary" name="gender" id="gender" style="background: rgb(0, 0, 0, 0.5);border-width: 3px;border-color: #f0526c;color: white;height: 40px;" onchange="checkSelection(this)" required>
-                              <option selected disabled value="">Select Gender</option>
-                              <option value="1">Male</option>
-                              <option value="0">Female</option>
-                            </select>
-                            </div>
-                            <br />
-                            <div class="form__group field">
-                            <label for="bp" class="form__label">Enter blood pressure</label>
-                              <input type="number" class="form__field" placeholder="blood pressure" name="bp" id="bp" min="50" required />
-  
-                            </div>
-                               <br />
-                               
-                               
-                             <div class="form__group field">
-                            <label for="age" class="form__label">Enter cholesterol value</label>
-                              <input type="number" class="form__field" placeholder="cholesterol value" name="chol" id="chol" min="50" required />
-  
-                            </div>
-                              
-                            <div class="wrapper">
-                            <button class="predict_button  " style="border:2px solid white; margin-top: 10px; background-color: transparent; color: white;">Predict Patient</button>
-                        </div>
-                      </div></form>
-                   </div>
-                 </div>
-                <br><br><br>
-                
-                <p class="h5 ftco-subheading mb-5">
-                <br><strong style="color:white;">Patient Age &emsp;&emsp;&emsp;: <i style="color: red;">{{ age2}}</i></strong>
-                <br><strong style="color:white;">Gender &emsp;&emsp;&emsp;&emsp;&emsp;: <i style="color: red;">{{ gender2 }}</i></strong>
-                <br><strong style="color:white;">Blood Pressure &emsp;: <i style="color: red;">{{ bp2}}</i></strong>
-                <br><strong style="color:white;">Cholesterol &emsp;&emsp;&emsp;: <i style="color: red;">{{ chol2}}</i></strong>
-                
-                <br><br><strong style="color:white;">Output &emsp;&emsp;&emsp;&emsp;&emsp;: <i style="color: red;">{{ prediction_text1 }}</i></strong>
-               
+              </div>
+            
           </div>
-        </div>  
-     </div> 
-   </div> 
-</section>
-
-    <!-- END section -->
+      </div>
+  </div>
     
-
-
-<div class="footer">
+    <input type="hidden" id="hdnAgeResult" value="{{age2}}"/>
+    
+<div class="footer" style="
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+">
   <a>Copyrights © 2021 | Ahmad Arsalan, Dr. Rao Muhammad Adeel Nawab | All Rights Reserved</a>
 </div>
 
   
-</div>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
+    <script src="/static/js/main.js"></script>
+
+    <script type="">
+    $(document).ready(function(){
+        if($("#hdnAgeResult").val()){
+        
+        	$(".divForm").css("display","none");
+        	$(".divResult").css("display","block");
+        }else{
+        	$(".divForm").css("display","block");
+        	$(".divResult").css("display","none");
+        }
+    });
+    	function sumitForm(){
+    		if($( "#predictForm" ).valid()){
+        	$(".divForm").css("display","none");
+        	$(".divResult").css("display","block");
+        	return true;
+        	}
+        	return false;
+    	}
+    	function gotoback(){
+    	
+        	$(".divForm").css("display","block");
+        	$(".divResult").css("display","none");
+        	
+        	
+    	}
+    </script>
+
+
   </body>
 </html>

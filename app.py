@@ -38,16 +38,16 @@ def predict():
     #unseen_feature_vectors = request.form.values()
    
    if prediction[0] == 1:
-        categorical_array = "Survived"
+        categorical_array = "Diagnosed"
    if prediction[0] == 0:
-        categorical_array = "Not Survived"
+        categorical_array = "Not Diagnosed"
     
    result= categorical_array
    
        
-   if gender1=="0":
-       gender1 = "Female"
    if gender1=="1":
+       gender1 = "Female"
+   if gender1=="0":
        gender1 = "Male"
      
    
